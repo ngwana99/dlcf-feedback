@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Daily Feedback – DLCF National Campus Conference 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --green: #0F6E56;
+    --green-light: #E1F5EE;
+    --green-mid: #1D9E75;
+    --gold: #BA7517;
+    --gold-light: #FAEEDA;
+    --gold-mid: #EF9F27;
+    --bg: #F8F7F3;
+    --card: #FFFFFF;
+    --text: #1a1a18;
+    --muted: #5F5E5A;
+    --border: rgba(0,0,0,0.10);
+    --radius: 14px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    padding-bottom: 60px;
+  }
+  .banner {
+    background: var(--green);
+    padding: 28px 24px 22px;
+    text-align: center;
+    border-bottom: 3px solid var(--gold-mid);
+  }
+  .banner-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #9FE1CB;
+    margin-bottom: 6px;
+  }
+  .banner h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(20px, 4vw, 28px);
+    font-weight: 600;
+    color: #ffffff;
+    line-height: 1.3;
+  }
+  .banner-sub {
+    font-size: 13px;
+    color: #9FE1CB;
+    margin-top: 6px;
+  }
+  .dates-strip {
+    background: var(--gold-light);
+    border-bottom: 0.5px solid #FAC775;
+    padding: 9px 24px;
+    text-align: center;
+    font-size: 13px;
+    color: var(--gold);
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+  .form-shell {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 24px 16px 0;
+  }
+  .card {
+    background: var(--card);
+    border: 0.5px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px 22px;
+    margin-bottom: 16px;
+  }
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 0.5px solid var(--border);
+  }
+  .card-num {
+    width: 26px; height: 26px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 500; flex-shrink: 0;
+  }
+  .num-green { background: var(--green-light); color: var(--green); }
+  .num-gold  { background: var(--gold-light);  color: var(--gold); }
+  .num-blue  { background: #E6F1FB; color: #185FA5; }
+  .num-purple{ background: #EEEDFE; color: #534AB7; }
+  .num-coral { background: #FAECE7; color: #993C1D; }
+  .card-title { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 500; color: var(--text); }
+  .badge {
+    font-size: 11px; font-weight: 500;
+    padding: 2px 9px; border-radius: 100px; margin-left: auto;
+  }
+  .badge-req  { background: #FAECE7; color: #993C1D; }
+  .badge-opt  { background: var(--green-light); color: var(--green); }
+  .field { margin-bottom: 14px; }
+  .field:last-child { margin-bottom: 0; }
+  .field label {
+    font-size: 13px; color: var(--muted);
+    display: block; margin-bottom: 6px; font-weight: 400;
+  }
+  .field label .req { color: #D85A30; margin-left: 2px; }
+  input[type="text"], select, textarea {
+    width: 100%; font-family: 'DM Sans', sans-serif;
+    font-size: 14px; color: var(--text);
+    background: #F8F7F3; border: 0.5px solid rgba(0,0,0,0.13);
+    border-radius: 8px; padding: 9px 12px;
+    outline: none; appearance: none; transition: border-color .15s;
+  }
+  input[type="text"]:focus, select:focus, textarea:focus {
+    border-color: var(--green-mid);
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(29,158,117,0.10);
+  }
+  textarea { resize: vertical; min-height: 72px; line-height: 1.5; }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media(max-width:500px){ .two-col { grid-template-columns: 1fr; } }
+  .anon-toggle {
+    background: #F8F7F3; border: 0.5px solid var(--border);
+    border-radius: 10px; padding: 12px 14px;
+    display: flex; align-items: flex-start; gap: 12px; cursor: pointer;
+  }
+  .anon-toggle input { width: 17px; height: 17px; margin-top: 1px; accent-color: var(--green); cursor: pointer; flex-shrink:0; }
+  .anon-label { font-size: 13px; color: var(--muted); line-height: 1.5; }
+  .anon-label strong { color: var(--text); font-weight: 500; }
+  #name-field { transition: opacity .2s, max-height .25s; overflow: hidden; }
+  .radio-group, .check-group {
+    display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px;
+  }
+  .radio-group.column, .check-group.column { flex-direction: column; gap: 7px; }
+  .radio-opt, .check-opt {
+    display: flex; align-items: center; gap: 7px;
+    font-size: 13px; color: var(--text); cursor: pointer;
+  }
+  .radio-opt input, .check-opt input {
+    width: 16px; height: 16px; accent-color: var(--green-mid);
+    flex-shrink: 0; cursor: pointer;
+    background: none; border: none; padding: 0;
+    box-shadow: none;
+  }
+  .scale-row { display: flex; gap: 6px; margin-top: 6px; }
+  .scale-btn {
+    flex: 1; height: 36px;
+    background: #F8F7F3; border: 0.5px solid rgba(0,0,0,0.13);
+    border-radius: 8px; font-size: 13px; font-weight: 500;
+    color: var(--muted); cursor: pointer; transition: all .12s;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .scale-btn:hover { background: var(--green-light); border-color: var(--green-mid); color: var(--green); }
+  .scale-btn.sel { background: var(--green-mid); border-color: var(--green-mid); color: #fff; }
+  .scale-labels { display: flex; justify-content: space-between; margin-top: 4px; }
+  .scale-labels span { font-size: 11px; color: var(--muted); }
+  .star-row { display: flex; gap: 6px; margin-top: 4px; }
+  .star {
+    font-size: 22px; cursor: pointer; color: #D3D1C7;
+    transition: color .1s; line-height:1;
+  }
+  .star.lit { color: var(--gold-mid); }
+  .divider { height: 0.5px; background: var(--border); margin: 12px 0; }
+  .session-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 6px;
+  }
+  @media(max-width:500px){ .session-grid { grid-template-columns: 1fr; } }
+  .session-card {
+    border: 0.5px solid var(--border); border-radius: 9px;
+    padding: 10px 12px; cursor: pointer; transition: all .12s;
+    display: flex; align-items: flex-start; gap: 9px;
+  }
+  .session-card:hover { border-color: var(--green-mid); background: var(--green-light); }
+  .session-card.sel { border-color: var(--green-mid); background: var(--green-light); }
+  .session-card input { accent-color: var(--green-mid); margin-top:2px; flex-shrink:0; }
+  .session-card-text .title { font-size: 13px; font-weight: 500; color: var(--text); }
+  .session-card-text .time  { font-size: 11px; color: var(--muted); margin-top: 1px; }
+  .submit-btn {
+    width: 100%; height: 48px;
+    background: var(--green); color: #fff;
+    border: none; border-radius: 10px;
+    font-family: 'Playfair Display', serif;
+    font-size: 16px; font-weight: 500;
+    cursor: pointer; transition: background .15s;
+    margin-top: 4px;
+    letter-spacing: 0.01em;
+  }
+  .submit-btn:hover { background: #0d5e49; }
+  .submit-btn:active { transform: scale(0.99); }
+  .footer-note {
+    text-align: center; font-size: 12px; color: var(--muted);
+    margin-top: 10px; line-height: 1.6;
+  }
+  #success-msg {
+    display: none; text-align: center;
+    background: var(--green-light); border: 0.5px solid var(--green-mid);
+    border-radius: var(--radius); padding: 28px 24px; margin-top: 16px;
+  }
+  #success-msg h2 { font-family:'Playfair Display',serif; color: var(--green); font-size: 20px; margin-bottom: 8px; }
+  #success-msg p { font-size: 14px; color: var(--muted); }
+  #error-msg {
+    display: none; background: #FCEBEB; border: 0.5px solid #F09595;
+    border-radius: 8px; padding: 12px 14px;
+    font-size: 13px; color: #A32D2D; margin-bottom: 12px;
+  }
+</style>
+</head>
+<body>
+
+<div class="banner">
+  <div class="banner-eyebrow">Deeper Life Campus Fellowship Cameroon</div>
+  <h1>National Campus Conference 2026<br>Daily Feedback Form</h1>
+  <div class="banner-sub">Thu 30 Apr – Sun 3 May &nbsp;|&nbsp; Share your experience each day</div>
+</div>
+<div class="dates-strip">
+  Thursday 30 Apr &nbsp;·&nbsp; Friday 1 May &nbsp;·&nbsp; Saturday 2 May &nbsp;·&nbsp; Sunday 3 May 2026
+</div>
+
+<div class="form-shell">
+  <div id="error-msg"></div>
+
+  <form id="feedback-form" novalidate>
+
+    <!-- SECTION 1: Identity -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-num num-green">1</div>
+        <span class="card-title">Your identity</span>
+        <span class="badge badge-req">Required</span>
+      </div>
+
+      <div class="field">
+        <label class="anon-toggle" for="anon-check">
+          <input type="checkbox" id="anon-check"/>
+          <span class="anon-label">
+            <strong>Submit anonymously</strong><br>
+            Check this box if you prefer not to share your name. Your feedback will still be fully recorded.
+          </span>
+        </label>
+      </div>
+
+      <div id="name-field" class="field">
+        <label for="full-name">Full name (optional if anonymous)</label>
+        <input type="text" id="full-name" name="fullName" placeholder="e.g. Esther Mbah"/>
+      </div>
+
+      <div class="two-col">
+        <div class="field">
+          <label for="campus">Campus / institution <span class="req">*</span></label>
+          <input type="text" id="campus" name="campus" placeholder="e.g. University of Buea" required/>
+        </div>
+        <div class="field">
+          <label for="region">Region <span class="req">*</span></label>
+          <select id="region" name="region" required>
+            <option value="">Select region</option>
+            <option>Centre</option>
+            <option>Littoral</option>
+            <option>West</option>
+            <option>South West</option>
+            <option>North West</option>
+            <option>South</option>
+            <option>East</option>
+            <option>Adamawa</option>
+            <option>North</option>
+            <option>Far North</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="two-col">
+        <div class="field">
+          <label for="conf-day">Conference day <span class="req">*</span></label>
+          <select id="conf-day" name="conferenceDay" required>
+            <option value="">Select day</option>
+            <option value="Thursday 30 Apr">Thursday 30 Apr</option>
+            <option value="Friday 1 May">Friday 1 May</option>
+            <option value="Saturday 2 May">Saturday 2 May</option>
+            <option value="Sunday 3 May">Sunday 3 May</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="gender">Gender</label>
+          <select id="gender" name="gender">
+            <option value="">Prefer not to say</option>
+            <option>Male</option>
+            <option>Female</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 2: Sessions attended -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-num num-gold">2</div>
+        <span class="card-title">Sessions attended today</span>
+        <span class="badge badge-req">Required</span>
+      </div>
+      <div class="field">
+        <label>Which sessions did you attend? <span class="req">*</span></label>
+        <div class="session-grid" id="sessions-grid">
+          <label class="session-card" onclick="toggleSession(this)">
+            <input type="checkbox" name="sessions" value="Morning Dews"/>
+            <div class="session-card-text">
+              <div class="title">Morning Dews</div>
+              <div class="time">6:30 – 7:45 AM</div>
+            </div>
+          </label>
+          <label class="session-card" onclick="toggleSession(this)">
+            <input type="checkbox" name="sessions" value="Morning Message"/>
+            <div class="session-card-text">
+              <div class="title">Morning Message</div>
+              <div class="time">8:45 – 10:15 AM</div>
+            </div>
+          </label>
+          <label class="session-card" onclick="toggleSession(this)">
+            <input type="checkbox" name="sessions" value="Impact"/>
+            <div class="session-card-text">
+              <div class="title">Impact</div>
+              <div class="time">10:30 AM – 12:00 PM</div>
+            </div>
+          </label>
+          <label class="session-card" onclick="toggleSession(this)">
+            <input type="checkbox" name="sessions" value="Seminar"/>
+            <div class="session-card-text">
+              <div class="title">Seminar</div>
+              <div class="time">12:00 – 1:00 PM</div>
+            </div>
+          </label>
+          <label class="session-card" onclick="toggleSession(this)">
+            <input type="checkbox" name="sessions" value="Entrepreneurial Empowerment"/>
+            <div class="session-card-text">
+              <div class="title">Entrepreneurial Empowerment</div>
+              <div class="time">3:00 – 4:30 PM</div>
+            </div>
+          </label>
+          <label class="session-card" onclick="toggleSession(this)">
+            <input type="checkbox" name="sessions" value="Talk"/>
+            <div class="session-card-text">
+              <div class="title">Talk</div>
+              <div class="time">4:30 – 6:15 PM</div>
+            </div>
+          </label>
+          <label class="session-card" onclick="toggleSession(this)">
+            <input type="checkbox" name="sessions" value="Variety"/>
+            <div class="session-card-text">
+              <div class="title">Variety</div>
+              <div class="time">6:15 – 7:15 PM</div>
+            </div>
+          </label>
+          <label class="session-card" onclick="toggleSession(this)">
+            <input type="checkbox" name="sessions" value="Revival Session"/>
+            <div class="session-card-text">
+              <div class="title">Revival Session</div>
+              <div class="time">7:30 – 9:00 PM</div>
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="best-session">Which session impacted you most today? <span class="req">*</span></label>
+        <select id="best-session" name="bestSession" required>
+          <option value="">Select a session</option>
+          <option>Morning Dews (6:30–7:45 AM)</option>
+          <option>Morning Message (8:45–10:15 AM)</option>
+          <option>Impact (10:30 AM–12:00 PM)</option>
+          <option>Seminar (12:00–1:00 PM)</option>
+          <option>Entrepreneurial Empowerment (3:00–4:30 PM)</option>
+          <option>Talk (4:30–6:15 PM)</option>
+          <option>Variety (6:15–7:15 PM)</option>
+          <option>Revival Session (7:30–9:00 PM)</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- SECTION 3: Spiritual -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-num num-blue">3</div>
+        <span class="card-title">Spiritual response & teaching</span>
+        <span class="badge badge-req">Required</span>
+      </div>
+
+      <div class="field">
+        <label>Rate the overall spiritual depth of today's programme <span class="req">*</span></label>
+        <div class="scale-row" id="depth-scale">
+          <button type="button" class="scale-btn" onclick="pickScale('depth',1)">1</button>
+          <button type="button" class="scale-btn" onclick="pickScale('depth',2)">2</button>
+          <button type="button" class="scale-btn" onclick="pickScale('depth',3)">3</button>
+          <button type="button" class="scale-btn" onclick="pickScale('depth',4)">4</button>
+          <button type="button" class="scale-btn" onclick="pickScale('depth',5)">5</button>
+        </div>
+        <div class="scale-labels"><span>Not deep</span><span>Very deep</span></div>
+        <input type="hidden" id="depth-val" name="spiritualDepth" required/>
+      </div>
+
+      <div class="field">
+        <label>How was your personal engagement in worship &amp; prayer today?</label>
+        <div class="scale-row" id="worship-scale">
+          <button type="button" class="scale-btn" onclick="pickScale('worship',1)">1</button>
+          <button type="button" class="scale-btn" onclick="pickScale('worship',2)">2</button>
+          <button type="button" class="scale-btn" onclick="pickScale('worship',3)">3</button>
+          <button type="button" class="scale-btn" onclick="pickScale('worship',4)">4</button>
+          <button type="button" class="scale-btn" onclick="pickScale('worship',5)">5</button>
+        </div>
+        <div class="scale-labels"><span>Low</span><span>Very high</span></div>
+        <input type="hidden" id="worship-val" name="worshipEngagement"/>
+      </div>
+
+      <div class="field">
+        <label>Key Bible truth or lesson received today</label>
+        <textarea name="bibleLesson" placeholder="Write the main truth God spoke to you…"></textarea>
+      </div>
+
+      <div class="field">
+        <label>Did you make any spiritual decision(s) today?</label>
+        <div class="check-group column">
+          <label class="check-opt"><input type="checkbox" name="decisions" value="Salvation – gave my life to Christ"/> Salvation – gave my life to Christ</label>
+          <label class="check-opt"><input type="checkbox" name="decisions" value="Rededication of life to God"/> Rededication of life to God</label>
+          <label class="check-opt"><input type="checkbox" name="decisions" value="Holy Spirit baptism"/> Holy Spirit baptism</label>
+          <label class="check-opt"><input type="checkbox" name="decisions" value="Personal commitment or vow"/> Personal commitment or vow</label>
+          <label class="check-opt"><input type="checkbox" name="decisions" value="None today"/> None today</label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Personal testimony or prayer request (optional)</label>
+        <textarea name="testimony" placeholder="Share briefly if you wish…"></textarea>
+      </div>
+    </div>
+
+    <!-- SECTION 4: Welfare & Logistics -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-num num-purple">4</div>
+        <span class="card-title">Welfare &amp; logistics</span>
+        <span class="badge badge-opt">Optional</span>
+      </div>
+
+      <div class="two-col">
+        <div class="field">
+          <label>Accommodation comfort</label>
+          <div class="scale-row" id="accom-scale">
+            <button type="button" class="scale-btn" onclick="pickScale('accom',1)">1</button>
+            <button type="button" class="scale-btn" onclick="pickScale('accom',2)">2</button>
+            <button type="button" class="scale-btn" onclick="pickScale('accom',3)">3</button>
+            <button type="button" class="scale-btn" onclick="pickScale('accom',4)">4</button>
+            <button type="button" class="scale-btn" onclick="pickScale('accom',5)">5</button>
+          </div>
+          <input type="hidden" id="accom-val" name="accommodation"/>
+        </div>
+        <div class="field">
+          <label>Feeding / catering quality</label>
+          <div class="scale-row" id="food-scale">
+            <button type="button" class="scale-btn" onclick="pickScale('food',1)">1</button>
+            <button type="button" class="scale-btn" onclick="pickScale('food',2)">2</button>
+            <button type="button" class="scale-btn" onclick="pickScale('food',3)">3</button>
+            <button type="button" class="scale-btn" onclick="pickScale('food',4)">4</button>
+            <button type="button" class="scale-btn" onclick="pickScale('food',5)">5</button>
+          </div>
+          <input type="hidden" id="food-val" name="catering"/>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Session orderliness &amp; conduct</label>
+        <div class="scale-row" id="order-scale">
+          <button type="button" class="scale-btn" onclick="pickScale('order',1)">1</button>
+          <button type="button" class="scale-btn" onclick="pickScale('order',2)">2</button>
+          <button type="button" class="scale-btn" onclick="pickScale('order',3)">3</button>
+          <button type="button" class="scale-btn" onclick="pickScale('order',4)">4</button>
+          <button type="button" class="scale-btn" onclick="pickScale('order',5)">5</button>
+        </div>
+        <div class="scale-labels"><span>Very disorderly</span><span>Excellent</span></div>
+        <input type="hidden" id="order-val" name="orderliness"/>
+      </div>
+
+      <div class="field">
+        <label>Any welfare concern or challenge today?</label>
+        <textarea name="welfareConcern" placeholder="Describe briefly if any…"></textarea>
+      </div>
+    </div>
+
+    <!-- SECTION 5: Overall -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-num num-coral">5</div>
+        <span class="card-title">Overall experience &amp; suggestions</span>
+        <span class="badge badge-req">Required</span>
+      </div>
+
+      <div class="field">
+        <label>Overall conference experience today <span class="req">*</span></label>
+        <div class="star-row" id="stars">
+          <span class="star" onclick="rateStar(1)">★</span>
+          <span class="star" onclick="rateStar(2)">★</span>
+          <span class="star" onclick="rateStar(3)">★</span>
+          <span class="star" onclick="rateStar(4)">★</span>
+          <span class="star" onclick="rateStar(5)">★</span>
+        </div>
+        <input type="hidden" id="overall-star" name="overallRating" required/>
+      </div>
+
+      <div class="field">
+        <label>Would you recommend this conference to a fellow student? <span class="req">*</span></label>
+        <div class="radio-group">
+          <label class="radio-opt"><input type="radio" name="recommend" value="Definitely yes" required/> Definitely yes</label>
+          <label class="radio-opt"><input type="radio" name="recommend" value="Probably yes"/> Probably yes</label>
+          <label class="radio-opt"><input type="radio" name="recommend" value="Not sure"/> Not sure</label>
+          <label class="radio-opt"><input type="radio" name="recommend" value="No"/> No</label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>What could be done better tomorrow?</label>
+        <textarea name="improvements" placeholder="Your honest suggestions are welcome…"></textarea>
+      </div>
+
+      <div class="field">
+        <label>Any encouragement or additional comment for the organizers</label>
+        <textarea name="comment" placeholder="Feel free to encourage, appreciate, or add anything else…"></textarea>
+      </div>
+    </div>
+
+    <div id="error-msg-bottom"></div>
+    <button type="submit" class="submit-btn" id="submit-btn">Submit today's feedback</button>
+    <p class="footer-note">
+      All responses are confidential and used only to improve the conference experience.<br>
+      Anonymous responses are equally valued.
+    </p>
+
+  </form>
+
+  <div id="success-msg">
+    <h2>Thank you — God bless you!</h2>
+    <p>Your feedback has been received. See you at the next session.</p>
+  </div>
+</div>
+
+<script>
+  const scaleVals = {};
+
+  function pickScale(name, val) {
+    scaleVals[name] = val;
+    document.getElementById(name+'-val').value = val;
+    const btns = document.querySelectorAll('#'+name+'-scale .scale-btn');
+    btns.forEach((b,i) => b.classList.toggle('sel', i < val));
+  }
+
+  let starVal = 0;
+  function rateStar(n) {
+    starVal = n;
+    document.getElementById('overall-star').value = n;
+    document.querySelectorAll('#stars .star').forEach((s,i) => s.classList.toggle('lit', i < n));
+  }
+
+  function toggleSession(label) {
+    setTimeout(() => {
+      label.classList.toggle('sel', label.querySelector('input').checked);
+    }, 0);
+  }
+
+  document.getElementById('anon-check').addEventListener('change', function() {
+    const nf = document.getElementById('name-field');
+    nf.style.opacity = this.checked ? '0.35' : '1';
+    nf.style.pointerEvents = this.checked ? 'none' : '';
+    if (this.checked) document.getElementById('full-name').value = '';
+  });
+
+  const API_URL = window.location.hostname === 'localhost'
+    ? 'http://localhost:3000/api/feedback'
+    : 'https://YOUR-RENDER-APP.onrender.com/api/feedback';
+
+  document.getElementById('feedback-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const errEl = document.getElementById('error-msg');
+    const errBot = document.getElementById('error-msg-bottom');
+    errEl.style.display = 'none'; errBot.style.display = 'none';
+
+    const form = e.target;
+    const data = {};
+
+    new FormData(form).forEach((v, k) => {
+      if (data[k]) {
+        data[k] = Array.isArray(data[k]) ? [...data[k], v] : [data[k], v];
+      } else { data[k] = v; }
+    });
+
+    data.anonymous = document.getElementById('anon-check').checked;
+    data.sessions = [...form.querySelectorAll('input[name="sessions"]:checked')].map(i=>i.value);
+    data.decisions = [...form.querySelectorAll('input[name="decisions"]:checked')].map(i=>i.value);
+    data.submittedAt = new Date().toISOString();
+
+    const required = [
+      { field: 'campus', label: 'Campus / institution' },
+      { field: 'region', label: 'Region' },
+      { field: 'conferenceDay', label: 'Conference day' },
+      { field: 'bestSession', label: 'Most impactful session' },
+      { field: 'spiritualDepth', label: 'Spiritual depth rating' },
+      { field: 'overallRating', label: 'Overall star rating' },
+      { field: 'recommend', label: 'Recommendation answer' },
+    ];
+
+    for (const r of required) {
+      if (!data[r.field]) {
+        const msg = `Please fill in: ${r.label}`;
+        errEl.textContent = msg; errEl.style.display = 'block';
+        errBot.textContent = msg; errBot.style.display = 'block';
+        window.scrollTo({top: 0, behavior: 'smooth'});
+        return;
+      }
+    }
+
+    if (!data.sessions.length) {
+      const msg = 'Please select at least one session you attended.';
+      errEl.textContent = msg; errEl.style.display = 'block';
+      errBot.textContent = msg; errBot.style.display = 'block';
+      return;
+    }
+
+    const btn = document.getElementById('submit-btn');
+    btn.textContent = 'Submitting…'; btn.disabled = true;
+
+    try {
+      const res = await fetch(API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      if (!res.ok) throw new Error('Server error');
+      form.style.display = 'none';
+      document.getElementById('success-msg').style.display = 'block';
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    } catch(err) {
+      const msg = 'Submission failed. Please check your connection and try again.';
+      errBot.textContent = msg; errBot.style.display = 'block';
+      btn.textContent = 'Submit today\'s feedback'; btn.disabled = false;
+    }
+  });
+</script>
+</body>
+</html>

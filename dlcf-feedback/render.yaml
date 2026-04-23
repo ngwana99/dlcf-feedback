@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: dlcf-feedback-api
+    env: node
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: PORT
+        value: 3000
+      - key: ADMIN_TOKEN
+        generateValue: true
+      - key: ALLOWED_ORIGIN
+        value: https://your-netlify-site.netlify.app
+    disk:
+      name: feedback-data
+      mountPath: /opt/render/project/src/server
+      sizeGB: 1

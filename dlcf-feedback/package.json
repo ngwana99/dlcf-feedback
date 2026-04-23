@@ -1,0 +1,20 @@
+{
+  "name": "dlcf-feedback-server",
+  "version": "1.0.0",
+  "description": "DLCF National Campus Conference 2026 – Daily Feedback API",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "nodemon server/index.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
