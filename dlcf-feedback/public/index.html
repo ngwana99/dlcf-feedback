@@ -13,10 +13,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);pad
 .banner{background:var(--orange);position:relative;overflow:hidden}
 .banner::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,rgba(212,188,82,.07) 0,rgba(212,188,82,.07) 1px,transparent 1px,transparent 20px)}
 .bi{position:relative;z-index:1;padding:28px 20px 22px;text-align:center}
-.cross-icon{width:28px;height:28px;margin:0 auto 10px;position:relative;display:flex;align-items:center;justify-content:center}
-.cross-icon::before,.cross-icon::after{content:'';position:absolute;background:var(--gold);border-radius:2px}
-.cross-icon::before{width:4px;height:28px}
-.cross-icon::after{width:28px;height:4px}
+.logo-img{width:64px;height:64px;border-radius:50%;margin:0 auto 10px;display:block;object-fit:cover}
 .eyebrow{font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:6px}
 .banner h1{font-family:'Playfair Display',serif;font-size:clamp(18px,4.5vw,28px);font-weight:700;color:#fff;line-height:1.25}
 .rev{font-family:'Playfair Display',serif;font-size:clamp(13px,3vw,18px);font-weight:500;color:var(--gold);margin-top:4px}
@@ -87,7 +84,7 @@ textarea{resize:vertical;min-height:70px;line-height:1.5}
 <body>
 <div class="banner">
   <div class="bi">
-    <div class="cross-icon"></div>
+    <img src="dlcf-logo.png" alt="DLCF Logo" class="logo-img"/>
     <div class="eyebrow">Deeper Life Campus Fellowship Cameroon</div>
     <h1>National Campus Conference</h1>
     <div class="rev">Revitalisation 2026</div>
@@ -318,7 +315,7 @@ textarea{resize:vertical;min-height:70px;line-height:1.5}
   </form>
 
   <div id="succ">
-    <div class="cx">✝</div>
+    <img src="dlcf-logo.png" alt="DLCF Logo" class="logo-img"/>
     <h2>Merci — Que Dieu vous bénisse !</h2>
     <p>Votre retour a bien été reçu. À la prochaine session !<br><em>Your feedback has been received. See you at the next session!</em></p>
   </div>

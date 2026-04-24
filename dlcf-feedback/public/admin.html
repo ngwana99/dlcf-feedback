@@ -15,10 +15,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 /* LOGIN */
 #login-screen{min-height:100vh;display:flex;align-items:center;justify-content:center;background:var(--or);padding:20px}
 .login-box{background:#fff;border-radius:16px;padding:36px 32px;width:100%;max-width:380px;text-align:center}
-.login-logo{width:40px;height:40px;margin:0 auto 12px;position:relative;display:flex;align-items:center;justify-content:center}
-.login-logo::before,.login-logo::after{content:'';position:absolute;background:var(--or);border-radius:2px}
-.login-logo::before{width:4px;height:40px}
-.login-logo::after{width:40px;height:4px}
+.login-logo{margin:0 auto 12px;display:block}
 .login-box h2{font-family:'Playfair Display',serif;font-size:20px;font-weight:600;color:var(--text);margin-bottom:4px}
 .login-box p{font-size:13px;color:var(--muted);margin-bottom:24px}
 .login-box input{width:100%;font-family:'DM Sans',sans-serif;font-size:14px;padding:10px 14px;border:.5px solid rgba(0,0,0,.15);border-radius:8px;outline:none;margin-bottom:12px}
@@ -29,10 +26,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min
 /* TOPBAR */
 .topbar{background:var(--or);padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
 .topbar-left{display:flex;align-items:center;gap:12px}
-.tb-cross{width:20px;height:20px;position:relative;flex-shrink:0}
-.tb-cross::before,.tb-cross::after{content:'';position:absolute;background:var(--gd);border-radius:1px;top:50%;left:50%;transform:translate(-50%,-50%)}
-.tb-cross::before{width:3px;height:20px}
-.tb-cross::after{width:20px;height:3px}
+.tb-logo{width:36px;height:36px;border-radius:50%;flex-shrink:0;object-fit:cover}
 .tb-title{font-family:'Playfair Display',serif;font-size:16px;font-weight:600;color:#fff}
 .tb-sub{font-size:11px;color:rgba(255,255,255,.65)}
 .tb-right{display:flex;align-items:center;gap:8px}
@@ -97,12 +91,12 @@ tr:hover td{background:#fafaf8}
 <!-- LOGIN -->
 <div id="login-screen">
   <div class="login-box">
-    <div class="login-logo"></div>
-    <h2>Tableau de bord Admin</h2>
+    <img src="dlcf-logo.png" alt="DLCF Logo" class="login-logo" style="width:72px;height:72px;border-radius:50%;object-fit:cover"/>
+    <h2>Tableau de bord / Admin Dashboard</h2>
     <p>NCC Revitalisation 2026 · Yaoundé</p>
-    <input type="password" id="token-input" placeholder="Entrez votre token admin…" onkeydown="if(event.key==='Enter')doLogin()"/>
-    <button class="login-btn" onclick="doLogin()">Accéder au tableau de bord</button>
-    <div id="login-err">Token incorrect. Veuillez réessayer.</div>
+    <input type="password" id="token-input" placeholder="Token admin / Admin token…" onkeydown="if(event.key==='Enter')doLogin()"/>
+    <button class="login-btn" onclick="doLogin()">Accéder / Login</button>
+    <div id="login-err">Token incorrect. Please try again. / Veuillez réessayer.</div>
   </div>
 </div>
 
@@ -111,16 +105,16 @@ tr:hover td{background:#fafaf8}
   <div class="gold-bar"></div>
   <div class="topbar">
     <div class="topbar-left">
-      <div class="tb-cross"></div>
+      <img src="dlcf-logo.png" alt="DLCF Logo" class="tb-logo"/>
       <div>
         <div class="tb-title">NCC Revitalisation 2026</div>
-        <div class="tb-sub">Tableau de bord des retours · Admin</div>
+        <div class="tb-sub">Tableau de bord · Admin Dashboard</div>
       </div>
     </div>
     <div class="tb-right">
-      <button class="tb-btn btn-refresh" onclick="loadData()">↻ Actualiser</button>
-      <button class="tb-btn btn-excel" onclick="exportExcel()">⬇ Excel</button>
-      <button class="tb-btn btn-logout" onclick="logout()">Déconnexion</button>
+      <button class="tb-btn btn-refresh" onclick="loadData()">↻ Actualiser / Refresh</button>
+      <button class="tb-btn btn-excel" onclick="exportExcel()">⬇ Excel Export</button>
+      <button class="tb-btn btn-logout" onclick="logout()">Déconnexion / Logout</button>
     </div>
   </div>
 
