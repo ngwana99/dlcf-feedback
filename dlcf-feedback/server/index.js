@@ -59,8 +59,11 @@ app.get('/api/summary', (req, res) => {
   res.json({ total: all.length, byDay, avgRating: ratingCount ? (totalRating / ratingCount).toFixed(2) : null, decisions, sessions });
 });
 
+app.get('/admin', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/admin.html'));
+});
+
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/index.html'));
 });
-
 app.listen(PORT, () => console.log(`DLCF server on port ${PORT}`));
