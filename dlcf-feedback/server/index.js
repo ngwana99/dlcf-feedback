@@ -7,9 +7,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const DATA_FILE = path.join(__dirname, 'feedback-data.json');
 
-app.use(cors({
-  origin: process.env.ALLOWED_ORIGIN || '*'
-}));
+app.use(cors({ origin: '*' }));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '../public')));
 
@@ -25,27 +23,20 @@ function saveData(data) {
 
 app.post('/api/feedback', (req, res) => {
   try {
-    const entry = {
-      id: Date.now().toString(),
-      ...req.body,
-      receivedAt: new Date().toISOString()
-    };
-
+    const entry = { id: Date.now().toString(), ...req.body, receivedAt: new Date().toISOString() };
     const all = loadData();
     all.push(entry);
     saveData(all);
-
-    console.log(`[${entry.receivedAt}] Feedback received — Day: ${entry.conferenceDay}, Anonymous: ${entry.anonymous}`);
-    res.status(201).json({ success: true, message: 'Feedback saved.' });
+    console.log(`[${entry.receivedAt}] Feedback — ${entry.conferenceDay} | Anon: ${entry.anonymous}`);
+    res.status(201).json({ success: true });
   } catch (err) {
     console.error('Save error:', err);
-    res.status(500).json({ success: false, message: 'Server error. Please try again.' });
+    res.status(500).json({ success: false });
   }
 });
 
 app.get('/api/feedback', (req, res) => {
-  const token = req.headers['x-admin-token'];
-  if (token !== process.env.ADMIN_TOKEN) {
+  if (req.headers['x-admin-token'] !== process.env.ADMIN_TOKEN) {
     return res.status(401).json({ error: 'Unauthorized' });
   }
   const all = loadData();
@@ -53,36 +44,23 @@ app.get('/api/feedback', (req, res) => {
 });
 
 app.get('/api/summary', (req, res) => {
-  const token = req.headers['x-admin-token'];
-  if (token !== process.env.ADMIN_TOKEN) {
+  if (req.headers['x-admin-token'] !== process.env.ADMIN_TOKEN) {
     return res.status(401).json({ error: 'Unauthorized' });
   }
   const all = loadData();
-  const byDay = {};
+  const byDay = {}, decisions = {}, sessions = {};
   let totalRating = 0, ratingCount = 0;
-  const decisions = {};
-  const sessions = {};
-
   for (const e of all) {
     byDay[e.conferenceDay] = (byDay[e.conferenceDay] || 0) + 1;
     if (e.overallRating) { totalRating += Number(e.overallRating); ratingCount++; }
-    (e.decisions || []).forEach(d => { decisions[d] = (decisions[d]||0)+1; });
-    (e.sessions || []).forEach(s => { sessions[s] = (sessions[s]||0)+1; });
+    (e.decisions || []).forEach(d => { decisions[d] = (decisions[d] || 0) + 1; });
+    (e.sessions || []).forEach(s => { sessions[s] = (sessions[s] || 0) + 1; });
   }
-
-  res.json({
-    total: all.length,
-    byDay,
-    avgRating: ratingCount ? (totalRating/ratingCount).toFixed(2) : null,
-    decisions,
-    sessions
-  });
+  res.json({ total: all.length, byDay, avgRating: ratingCount ? (totalRating / ratingCount).toFixed(2) : null, decisions, sessions });
 });
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/index.html'));
 });
 
-app.listen(PORT, () => {
-  console.log(`DLCF Feedback server running on port ${PORT}`);
-});
+app.listen(PORT, () => console.log(`DLCF server on port ${PORT}`));
