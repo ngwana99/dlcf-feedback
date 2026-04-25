@@ -35,27 +35,24 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);pad
 .bopt{background:var(--gl);color:var(--gd)}
 .field{margin-bottom:14px}
 .field:last-child{margin-bottom:0}
-.bilabel{display:flex;flex-direction:column;gap:1px;margin-bottom:5px}
-.bilabel .fr{font-size:13px;color:var(--text);font-weight:500}
-.bilabel .en{font-size:11px;color:var(--muted);font-style:italic}
+.flabel{font-size:13px;color:var(--text);font-weight:500;display:block;margin-bottom:5px}
 .req{color:var(--orange);margin-left:2px}
 input[type=text],select,textarea{width:100%;font-family:'DM Sans',sans-serif;font-size:14px;color:var(--text);background:var(--bg);border:.5px solid rgba(0,0,0,.13);border-radius:8px;padding:9px 12px;outline:none;appearance:none;transition:border-color .15s}
 input[type=text]:focus,select:focus,textarea:focus{border-color:var(--orange);background:#fff;box-shadow:0 0 0 3px rgba(229,79,0,.10)}
 textarea{resize:vertical;min-height:70px;line-height:1.5}
 .two-col{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 @media(max-width:500px){.two-col{grid-template-columns:1fr}}
-.anon-tog{background:var(--bg);border:.5px solid var(--bdr);border-radius:10px;padding:11px 14px;display:flex;align-items:flex-start;gap:11px;cursor:pointer}
-.anon-tog input{width:17px;height:17px;margin-top:1px;accent-color:var(--orange);flex-shrink:0}
-.anon-lbl .fr{font-size:13px;font-weight:500;color:var(--text)}
-.anon-lbl .en{font-size:11px;color:var(--muted);font-style:italic}
+.anon-tog{background:var(--bg);border:.5px solid var(--bdr);border-radius:10px;padding:11px 14px;display:flex;align-items:flex-start;gap:11px;cursor:pointer;margin-bottom:14px}
+.anon-tog input{width:17px;height:17px;margin-top:2px;accent-color:var(--orange);flex-shrink:0}
+.anon-lbl{font-size:13px;font-weight:500;color:var(--text)}
+.anon-sub{font-size:12px;color:var(--muted);margin-top:2px}
 .sgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:6px}
 @media(max-width:500px){.sgrid{grid-template-columns:1fr}}
 .sc{border:.5px solid var(--bdr);border-radius:9px;padding:10px 12px;cursor:pointer;transition:all .12s;display:flex;align-items:flex-start;gap:9px}
 .sc:hover,.sc.sel{border-color:var(--orange);background:var(--ol)}
 .sc input{accent-color:var(--orange);margin-top:2px;flex-shrink:0;cursor:pointer;background:none;border:none;padding:0;box-shadow:none;width:16px;height:16px}
 .sc .t{font-size:13px;font-weight:500;color:var(--text)}
-.sc .s{font-size:11px;color:var(--muted);font-style:italic}
-.sc .tm{font-size:11px;color:var(--muted);margin-top:1px}
+.sc .tm{font-size:11px;color:var(--muted);margin-top:2px}
 .srow{display:flex;gap:5px;margin-top:5px}
 .sbtn{flex:1;height:36px;background:var(--bg);border:.5px solid rgba(0,0,0,.13);border-radius:8px;font-size:13px;font-weight:500;color:var(--muted);cursor:pointer;transition:all .12s;font-family:'DM Sans',sans-serif}
 .sbtn:hover{background:var(--ol);border-color:var(--orange);color:var(--orange)}
@@ -69,31 +66,30 @@ textarea{resize:vertical;min-height:70px;line-height:1.5}
 .ckg.col,.rdg.col{flex-direction:column;gap:7px}
 .cko,.rdo{display:flex;align-items:flex-start;gap:8px;font-size:13px;color:var(--text);cursor:pointer}
 .cko input,.rdo input{width:16px;height:16px;accent-color:var(--orange);flex-shrink:0;margin-top:1px;background:none;border:none;padding:0;box-shadow:none;cursor:pointer}
-.ol .fr{font-size:13px}
-.ol .en{font-size:11px;color:var(--muted);font-style:italic}
 .sub-btn{width:100%;height:50px;background:var(--orange);color:#fff;border:none;border-radius:10px;font-family:'Playfair Display',serif;font-size:16px;font-weight:600;cursor:pointer;transition:background .15s;margin-top:4px}
 .sub-btn:hover{background:var(--od)}
 .fnote{text-align:center;font-size:12px;color:var(--muted);margin-top:10px;line-height:1.7}
 #succ{display:none;text-align:center;background:var(--ol);border:.5px solid var(--orange);border-radius:var(--r);padding:32px 24px;margin-top:16px}
-#succ .cx{font-size:32px;color:var(--gold);margin-bottom:10px}
 #succ h2{font-family:'Playfair Display',serif;color:var(--orange);font-size:22px;margin-bottom:6px}
 #succ p{font-size:14px;color:var(--muted)}
 .ebox{display:none;background:#fff0e8;border:.5px solid var(--orange);border-radius:8px;padding:11px 14px;font-size:13px;color:var(--od);margin-bottom:12px}
 </style>
 </head>
 <body>
+
 <div class="banner">
   <div class="bi">
     <img src="dlcf-logo.png" alt="DLCF Logo" class="logo-img"/>
     <div class="eyebrow">Deeper Life Campus Fellowship Cameroon</div>
     <h1>National Campus Conference</h1>
     <div class="rev">Revitalisation 2026</div>
-    <div class="loc">Yaoundé, Cameroun &nbsp;·&nbsp; 30 Avril – 3 Mai 2026</div>
+    <div class="loc" data-fr="Yaoundé, Cameroun · 30 Avril – 3 Mai 2026" data-en="Yaoundé, Cameroon · 30 April – 3 May 2026">Yaoundé, Cameroun · 30 Avril – 3 Mai 2026</div>
   </div>
   <div class="gold-bar"></div>
 </div>
+
 <div class="lang-bar">
-  <span class="lang-note">Formulaire de retour quotidien / Daily Feedback Form</span>
+  <span class="lang-note" data-fr="Formulaire de retour quotidien" data-en="Daily Feedback Form">Formulaire de retour quotidien</span>
   <div class="lang-toggle">
     <button class="lang-btn active" onclick="setLang('fr')">FR</button>
     <button class="lang-btn" onclick="setLang('en')">EN</button>
@@ -104,35 +100,36 @@ textarea{resize:vertical;min-height:70px;line-height:1.5}
   <div class="ebox" id="err-top"></div>
   <form id="ff" novalidate>
 
-    <!-- 1 IDENTITÉ -->
+    <!-- 1 IDENTITY -->
     <div class="card">
       <div class="ch">
         <div class="cnum">1</div>
         <div class="ctitle" data-fr="Votre identité" data-en="Your identity">Votre identité</div>
         <span class="badge breq" data-fr="Requis" data-en="Required">Requis</span>
       </div>
-      <div style="margin-bottom:14px">
-        <label class="anon-tog" for="anon">
-          <input type="checkbox" id="anon"/>
-          <div class="anon-lbl">
-            <div class="fr" data-fr="Soumettre anonymement" data-en="Submit anonymously">Soumettre anonymement</div>
-            <div class="en">Submit anonymously – cochez si vous préférez ne pas partager votre nom</div>
-          </div>
-        </label>
-      </div>
-      <div id="nf" style="margin-bottom:14px">
-        <div class="bilabel"><span class="fr" data-fr="Nom complet (facultatif si anonyme)" data-en="Full name (optional if anonymous)">Nom complet <small style="font-weight:300">(facultatif si anonyme)</small></span></div>
-        <input type="text" name="fullName" placeholder="Ex. Esther Mbah"/>
-      </div>
-      <div class="two-col">
+
+      <label class="anon-tog" for="anon">
+        <input type="checkbox" id="anon"/>
         <div>
-          <div class="bilabel"><span class="fr">Campus / Établissement <span class="req">*</span></span><span class="en">Campus / Institution</span></div>
-          <input type="text" name="campus" placeholder="Ex. Université de Yaoundé I" required/>
+          <div class="anon-lbl" data-fr="Soumettre anonymement" data-en="Submit anonymously">Soumettre anonymement</div>
+          <div class="anon-sub" data-fr="Cochez si vous préférez ne pas partager votre nom" data-en="Check if you prefer not to share your name">Cochez si vous préférez ne pas partager votre nom</div>
         </div>
-        <div>
-          <div class="bilabel"><span class="fr">Région <span class="req">*</span></span><span class="en">Region</span></div>
+      </label>
+
+      <div id="nf" class="field">
+        <label class="flabel" data-fr="Nom complet (facultatif si anonyme)" data-en="Full name (optional if anonymous)">Nom complet (facultatif si anonyme)</label>
+        <input type="text" name="fullName" data-placeholder-fr="Ex. Esther Mbah" data-placeholder-en="E.g. Esther Mbah" placeholder="Ex. Esther Mbah"/>
+      </div>
+
+      <div class="two-col">
+        <div class="field">
+          <label class="flabel"><span data-fr="Campus / Établissement" data-en="Campus / Institution">Campus / Établissement</span><span class="req">*</span></label>
+          <input type="text" name="campus" data-placeholder-fr="Ex. Université de Yaoundé I" data-placeholder-en="E.g. University of Yaoundé I" placeholder="Ex. Université de Yaoundé I" required/>
+        </div>
+        <div class="field">
+          <label class="flabel"><span data-fr="Région" data-en="Region">Région</span><span class="req">*</span></label>
           <select name="region" required>
-            <option value="">— Choisir / Select —</option>
+            <option value="" data-fr="— Choisir —" data-en="— Select —">— Choisir —</option>
             <option>Centre</option><option>Littoral</option><option>Ouest / West</option>
             <option>Sud-Ouest / South West</option><option>Nord-Ouest / North West</option>
             <option>Sud / South</option><option>Est / East</option>
@@ -140,23 +137,24 @@ textarea{resize:vertical;min-height:70px;line-height:1.5}
           </select>
         </div>
       </div>
-      <div class="two-col" style="margin-top:12px">
-        <div>
-          <div class="bilabel"><span class="fr">Jour de conférence <span class="req">*</span></span><span class="en">Conference day</span></div>
+
+      <div class="two-col">
+        <div class="field">
+          <label class="flabel"><span data-fr="Jour de conférence" data-en="Conference day">Jour de conférence</span><span class="req">*</span></label>
           <select name="conferenceDay" required>
-            <option value="">— Choisir / Select —</option>
-            <option value="Jeudi 30 Avril">Jeudi 30 Avr / Thu 30 Apr</option>
-            <option value="Vendredi 1 Mai">Vendredi 1 Mai / Fri 1 May</option>
-            <option value="Samedi 2 Mai">Samedi 2 Mai / Sat 2 May</option>
-            <option value="Dimanche 3 Mai">Dimanche 3 Mai / Sun 3 May</option>
+            <option value="" data-fr="— Choisir —" data-en="— Select —">— Choisir —</option>
+            <option value="Jeudi 30 Avril" data-fr="Jeudi 30 Avril" data-en="Thursday 30 April">Jeudi 30 Avril</option>
+            <option value="Vendredi 1 Mai" data-fr="Vendredi 1 Mai" data-en="Friday 1 May">Vendredi 1 Mai</option>
+            <option value="Samedi 2 Mai" data-fr="Samedi 2 Mai" data-en="Saturday 2 May">Samedi 2 Mai</option>
+            <option value="Dimanche 3 Mai" data-fr="Dimanche 3 Mai" data-en="Sunday 3 May">Dimanche 3 Mai</option>
           </select>
         </div>
-        <div>
-          <div class="bilabel"><span class="fr">Genre</span><span class="en">Gender</span></div>
+        <div class="field">
+          <label class="flabel" data-fr="Genre" data-en="Gender">Genre</label>
           <select name="gender">
-            <option value="">Préfère ne pas dire</option>
-            <option value="Masculin">Masculin / Male</option>
-            <option value="Féminin">Féminin / Female</option>
+            <option value="" data-fr="Préfère ne pas dire" data-en="Prefer not to say">Préfère ne pas dire</option>
+            <option value="Masculin" data-fr="Masculin" data-en="Male">Masculin</option>
+            <option value="Féminin" data-fr="Féminin" data-en="Female">Féminin</option>
           </select>
         </div>
       </div>
@@ -169,34 +167,36 @@ textarea{resize:vertical;min-height:70px;line-height:1.5}
         <div class="ctitle" data-fr="Sessions du jour" data-en="Today's sessions">Sessions du jour</div>
         <span class="badge breq" data-fr="Requis" data-en="Required">Requis</span>
       </div>
-      <div class="bilabel"><span class="fr">Sessions auxquelles vous avez participé <span class="req">*</span></span><span class="en">Sessions you attended</span></div>
-      <div class="sgrid">
-        <label class="sc" onclick="tS(this)"><input type="checkbox" name="sessions" value="Rosée du matin"/><div><div class="t">Rosée du matin</div><div class="s">Morning Dews</div><div class="tm">6h30–7h45</div></div></label>
-        <label class="sc" onclick="tS(this)"><input type="checkbox" name="sessions" value="Message du matin"/><div><div class="t">Message du matin</div><div class="s">Morning Message</div><div class="tm">8h45–10h15</div></div></label>
-        <label class="sc" onclick="tS(this)"><input type="checkbox" name="sessions" value="Impact"/><div><div class="t">Impact</div><div class="s">Impact</div><div class="tm">10h30–12h00</div></div></label>
-        <label class="sc" onclick="tS(this)"><input type="checkbox" name="sessions" value="Séminaire"/><div><div class="t">Séminaire</div><div class="s">Seminar</div><div class="tm">12h00–13h00</div></div></label>
-        <label class="sc" onclick="tS(this)"><input type="checkbox" name="sessions" value="Entrepreneuriat"/><div><div class="t">Autonomisation entrepreneuriale</div><div class="s">Entrepreneurial Empowerment</div><div class="tm">15h00–16h30</div></div></label>
-        <label class="sc" onclick="tS(this)"><input type="checkbox" name="sessions" value="Talk"/><div><div class="t">Talk</div><div class="s">Talk</div><div class="tm">16h30–18h15</div></div></label>
-        <label class="sc" onclick="tS(this)"><input type="checkbox" name="sessions" value="Variété"/><div><div class="t">Variété</div><div class="s">Variety</div><div class="tm">18h15–19h15</div></div></label>
-        <label class="sc" onclick="tS(this)"><input type="checkbox" name="sessions" value="Session de réveil"/><div><div class="t">Session de réveil</div><div class="s">Revival Session</div><div class="tm">19h30–21h00</div></div></label>
+      <div class="field">
+        <label class="flabel"><span data-fr="Sessions auxquelles vous avez participé" data-en="Sessions you attended">Sessions auxquelles vous avez participé</span><span class="req">*</span></label>
+        <div class="sgrid">
+          <label class="sc" onclick="tS(this)"><input type="checkbox" name="sessions" value="Rosée du matin"/><div><div class="t" data-fr="Rosée du matin" data-en="Morning Dews">Rosée du matin</div><div class="tm">6h30 – 7h45</div></div></label>
+          <label class="sc" onclick="tS(this)"><input type="checkbox" name="sessions" value="Message du matin"/><div><div class="t" data-fr="Message du matin" data-en="Morning Message">Message du matin</div><div class="tm">8h45 – 10h15</div></div></label>
+          <label class="sc" onclick="tS(this)"><input type="checkbox" name="sessions" value="Impact"/><div><div class="t" data-fr="Impact" data-en="Impact">Impact</div><div class="tm">10h30 – 12h00</div></div></label>
+          <label class="sc" onclick="tS(this)"><input type="checkbox" name="sessions" value="Séminaire"/><div><div class="t" data-fr="Séminaire" data-en="Seminar">Séminaire</div><div class="tm">12h00 – 13h00</div></div></label>
+          <label class="sc" onclick="tS(this)"><input type="checkbox" name="sessions" value="Entrepreneuriat"/><div><div class="t" data-fr="Autonomisation entrepreneuriale" data-en="Entrepreneurial Empowerment">Autonomisation entrepreneuriale</div><div class="tm">15h00 – 16h30</div></div></label>
+          <label class="sc" onclick="tS(this)"><input type="checkbox" name="sessions" value="Talk"/><div><div class="t" data-fr="Talk" data-en="Talk">Talk</div><div class="tm">16h30 – 18h15</div></div></label>
+          <label class="sc" onclick="tS(this)"><input type="checkbox" name="sessions" value="Variété"/><div><div class="t" data-fr="Variété" data-en="Variety">Variété</div><div class="tm">18h15 – 19h15</div></div></label>
+          <label class="sc" onclick="tS(this)"><input type="checkbox" name="sessions" value="Session de réveil"/><div><div class="t" data-fr="Session de réveil" data-en="Revival Session">Session de réveil</div><div class="tm">19h30 – 21h00</div></div></label>
+        </div>
       </div>
-      <div style="margin-top:14px">
-        <div class="bilabel"><span class="fr">Session la plus marquante aujourd'hui <span class="req">*</span></span><span class="en">Session that impacted you most</span></div>
+      <div class="field">
+        <label class="flabel"><span data-fr="Session la plus marquante aujourd'hui" data-en="Session that impacted you most today">Session la plus marquante aujourd'hui</span><span class="req">*</span></label>
         <select name="bestSession" required>
-          <option value="">— Choisir / Select —</option>
-          <option>Rosée du matin (6h30–7h45)</option>
-          <option>Message du matin (8h45–10h15)</option>
-          <option>Impact (10h30–12h00)</option>
-          <option>Séminaire (12h00–13h00)</option>
-          <option>Autonomisation entrepreneuriale (15h00–16h30)</option>
-          <option>Talk (16h30–18h15)</option>
-          <option>Variété (18h15–19h15)</option>
-          <option>Session de réveil (19h30–21h00)</option>
+          <option value="" data-fr="— Choisir —" data-en="— Select —">— Choisir —</option>
+          <option data-fr="Rosée du matin (6h30–7h45)" data-en="Morning Dews (6:30–7:45)">Rosée du matin (6h30–7h45)</option>
+          <option data-fr="Message du matin (8h45–10h15)" data-en="Morning Message (8:45–10:15)">Message du matin (8h45–10h15)</option>
+          <option data-fr="Impact (10h30–12h00)" data-en="Impact (10:30–12:00)">Impact (10h30–12h00)</option>
+          <option data-fr="Séminaire (12h00–13h00)" data-en="Seminar (12:00–13:00)">Séminaire (12h00–13h00)</option>
+          <option data-fr="Autonomisation entrepreneuriale (15h00–16h30)" data-en="Entrepreneurial Empowerment (15:00–16:30)">Autonomisation entrepreneuriale (15h00–16h30)</option>
+          <option data-fr="Talk (16h30–18h15)" data-en="Talk (16:30–18:15)">Talk (16h30–18h15)</option>
+          <option data-fr="Variété (18h15–19h15)" data-en="Variety (18:15–19:15)">Variété (18h15–19h15)</option>
+          <option data-fr="Session de réveil (19h30–21h00)" data-en="Revival Session (19:30–21:00)">Session de réveil (19h30–21h00)</option>
         </select>
       </div>
     </div>
 
-    <!-- 3 SPIRITUEL -->
+    <!-- 3 SPIRITUAL -->
     <div class="card">
       <div class="ch">
         <div class="cnum">3</div>
@@ -204,7 +204,7 @@ textarea{resize:vertical;min-height:70px;line-height:1.5}
         <span class="badge breq" data-fr="Requis" data-en="Required">Requis</span>
       </div>
       <div class="field">
-        <div class="bilabel"><span class="fr">Profondeur spirituelle du programme <span class="req">*</span></span><span class="en">Spiritual depth of today's programme</span></div>
+        <label class="flabel"><span data-fr="Profondeur spirituelle du programme" data-en="Spiritual depth of today's programme">Profondeur spirituelle du programme</span><span class="req">*</span></label>
         <div class="srow" id="depth-scale">
           <button type="button" class="sbtn" onclick="pS('depth',1)">1</button><button type="button" class="sbtn" onclick="pS('depth',2)">2</button><button type="button" class="sbtn" onclick="pS('depth',3)">3</button><button type="button" class="sbtn" onclick="pS('depth',4)">4</button><button type="button" class="sbtn" onclick="pS('depth',5)">5</button>
         </div>
@@ -212,34 +212,34 @@ textarea{resize:vertical;min-height:70px;line-height:1.5}
         <input type="hidden" id="depth-val" name="spiritualDepth" required/>
       </div>
       <div class="field">
-        <div class="bilabel"><span class="fr">Engagement personnel dans le culte et la prière</span><span class="en">Personal engagement in worship & prayer</span></div>
+        <label class="flabel" data-fr="Engagement personnel dans le culte et la prière" data-en="Personal engagement in worship & prayer">Engagement personnel dans le culte et la prière</label>
         <div class="srow" id="worship-scale">
           <button type="button" class="sbtn" onclick="pS('worship',1)">1</button><button type="button" class="sbtn" onclick="pS('worship',2)">2</button><button type="button" class="sbtn" onclick="pS('worship',3)">3</button><button type="button" class="sbtn" onclick="pS('worship',4)">4</button><button type="button" class="sbtn" onclick="pS('worship',5)">5</button>
         </div>
-        <div class="slbls"><span>Faible</span><span>Très élevé</span></div>
+        <div class="slbls"><span data-fr="Faible" data-en="Low">Faible</span><span data-fr="Très élevé" data-en="Very high">Très élevé</span></div>
         <input type="hidden" id="worship-val" name="worshipEngagement"/>
       </div>
       <div class="field">
-        <div class="bilabel"><span class="fr">Vérité biblique ou leçon reçue aujourd'hui</span><span class="en">Key Bible truth or lesson received today</span></div>
-        <textarea name="bibleLesson" placeholder="Écrivez ici / Write here…"></textarea>
+        <label class="flabel" data-fr="Vérité biblique ou leçon reçue aujourd'hui" data-en="Key Bible truth or lesson received today">Vérité biblique ou leçon reçue aujourd'hui</label>
+        <textarea name="bibleLesson" data-placeholder-fr="Écrivez ici…" data-placeholder-en="Write here…" placeholder="Écrivez ici…"></textarea>
       </div>
       <div class="field">
-        <div class="bilabel"><span class="fr">Décision(s) spirituelle(s) prise(s) aujourd'hui ?</span><span class="en">Spiritual decision(s) made today?</span></div>
+        <label class="flabel" data-fr="Décision(s) spirituelle(s) prise(s) aujourd'hui ?" data-en="Spiritual decision(s) made today?">Décision(s) spirituelle(s) prise(s) aujourd'hui ?</label>
         <div class="ckg col">
-          <label class="cko"><input type="checkbox" name="decisions" value="Salut"/><div class="ol"><div class="fr">Salut – j'ai donné ma vie à Christ</div><div class="en">Salvation – gave my life to Christ</div></div></label>
-          <label class="cko"><input type="checkbox" name="decisions" value="Reconsécration"/><div class="ol"><div class="fr">Reconsécration de ma vie à Dieu</div><div class="en">Rededication of my life to God</div></div></label>
-          <label class="cko"><input type="checkbox" name="decisions" value="Saint-Esprit"/><div class="ol"><div class="fr">Baptême du Saint-Esprit</div><div class="en">Holy Spirit baptism</div></div></label>
-          <label class="cko"><input type="checkbox" name="decisions" value="Engagement personnel"/><div class="ol"><div class="fr">Engagement ou vœu personnel</div><div class="en">Personal commitment or vow</div></div></label>
-          <label class="cko"><input type="checkbox" name="decisions" value="Aucune"/><div class="ol"><div class="fr">Aucune décision aujourd'hui</div><div class="en">No specific decision today</div></div></label>
+          <label class="cko"><input type="checkbox" name="decisions" value="Salut"/><span data-fr="Salut – j'ai donné ma vie à Christ" data-en="Salvation – gave my life to Christ">Salut – j'ai donné ma vie à Christ</span></label>
+          <label class="cko"><input type="checkbox" name="decisions" value="Reconsécration"/><span data-fr="Reconsécration de ma vie à Dieu" data-en="Rededication of my life to God">Reconsécration de ma vie à Dieu</span></label>
+          <label class="cko"><input type="checkbox" name="decisions" value="Saint-Esprit"/><span data-fr="Baptême du Saint-Esprit" data-en="Holy Spirit baptism">Baptême du Saint-Esprit</span></label>
+          <label class="cko"><input type="checkbox" name="decisions" value="Engagement personnel"/><span data-fr="Engagement ou vœu personnel" data-en="Personal commitment or vow">Engagement ou vœu personnel</span></label>
+          <label class="cko"><input type="checkbox" name="decisions" value="Aucune"/><span data-fr="Aucune décision aujourd'hui" data-en="No specific decision today">Aucune décision aujourd'hui</span></label>
         </div>
       </div>
       <div class="field">
-        <div class="bilabel"><span class="fr">Témoignage ou demande de prière (facultatif)</span><span class="en">Testimony or prayer request (optional)</span></div>
-        <textarea name="testimony" placeholder="Partagez brièvement / Share briefly…"></textarea>
+        <label class="flabel" data-fr="Témoignage ou demande de prière (facultatif)" data-en="Testimony or prayer request (optional)">Témoignage ou demande de prière (facultatif)</label>
+        <textarea name="testimony" data-placeholder-fr="Partagez brièvement…" data-placeholder-en="Share briefly…" placeholder="Partagez brièvement…"></textarea>
       </div>
     </div>
 
-    <!-- 4 LOGISTIQUE -->
+    <!-- 4 LOGISTICS -->
     <div class="card">
       <div class="ch">
         <div class="cnum">4</div>
@@ -247,36 +247,36 @@ textarea{resize:vertical;min-height:70px;line-height:1.5}
         <span class="badge bopt" data-fr="Facultatif" data-en="Optional">Facultatif</span>
       </div>
       <div class="two-col">
-        <div>
-          <div class="bilabel"><span class="fr">Confort de l'hébergement</span><span class="en">Accommodation comfort</span></div>
+        <div class="field">
+          <label class="flabel" data-fr="Confort de l'hébergement" data-en="Accommodation comfort">Confort de l'hébergement</label>
           <div class="srow" id="accom-scale">
             <button type="button" class="sbtn" onclick="pS('accom',1)">1</button><button type="button" class="sbtn" onclick="pS('accom',2)">2</button><button type="button" class="sbtn" onclick="pS('accom',3)">3</button><button type="button" class="sbtn" onclick="pS('accom',4)">4</button><button type="button" class="sbtn" onclick="pS('accom',5)">5</button>
           </div>
           <input type="hidden" id="accom-val" name="accommodation"/>
         </div>
-        <div>
-          <div class="bilabel"><span class="fr">Qualité de la restauration</span><span class="en">Catering quality</span></div>
+        <div class="field">
+          <label class="flabel" data-fr="Qualité de la restauration" data-en="Catering quality">Qualité de la restauration</label>
           <div class="srow" id="food-scale">
             <button type="button" class="sbtn" onclick="pS('food',1)">1</button><button type="button" class="sbtn" onclick="pS('food',2)">2</button><button type="button" class="sbtn" onclick="pS('food',3)">3</button><button type="button" class="sbtn" onclick="pS('food',4)">4</button><button type="button" class="sbtn" onclick="pS('food',5)">5</button>
           </div>
           <input type="hidden" id="food-val" name="catering"/>
         </div>
       </div>
-      <div style="margin-top:12px">
-        <div class="bilabel"><span class="fr">Ordre et discipline des sessions</span><span class="en">Session orderliness</span></div>
+      <div class="field" style="margin-top:12px">
+        <label class="flabel" data-fr="Ordre et discipline des sessions" data-en="Session orderliness">Ordre et discipline des sessions</label>
         <div class="srow" id="order-scale">
           <button type="button" class="sbtn" onclick="pS('order',1)">1</button><button type="button" class="sbtn" onclick="pS('order',2)">2</button><button type="button" class="sbtn" onclick="pS('order',3)">3</button><button type="button" class="sbtn" onclick="pS('order',4)">4</button><button type="button" class="sbtn" onclick="pS('order',5)">5</button>
         </div>
-        <div class="slbls"><span>Très désordonné</span><span>Excellent</span></div>
+        <div class="slbls"><span data-fr="Très désordonné" data-en="Very disorderly">Très désordonné</span><span data-fr="Excellent" data-en="Excellent">Excellent</span></div>
         <input type="hidden" id="order-val" name="orderliness"/>
       </div>
-      <div style="margin-top:12px">
-        <div class="bilabel"><span class="fr">Problème ou préoccupation logistique ?</span><span class="en">Any welfare concern or challenge?</span></div>
-        <textarea name="welfareConcern" placeholder="Décrivez brièvement / Describe briefly…"></textarea>
+      <div class="field">
+        <label class="flabel" data-fr="Problème ou préoccupation logistique ?" data-en="Any welfare concern or challenge?">Problème ou préoccupation logistique ?</label>
+        <textarea name="welfareConcern" data-placeholder-fr="Décrivez brièvement…" data-placeholder-en="Describe briefly…" placeholder="Décrivez brièvement…"></textarea>
       </div>
     </div>
 
-    <!-- 5 GLOBAL -->
+    <!-- 5 OVERALL -->
     <div class="card">
       <div class="ch">
         <div class="cnum">5</div>
@@ -284,74 +284,119 @@ textarea{resize:vertical;min-height:70px;line-height:1.5}
         <span class="badge breq" data-fr="Requis" data-en="Required">Requis</span>
       </div>
       <div class="field">
-        <div class="bilabel"><span class="fr">Note globale de votre expérience aujourd'hui <span class="req">*</span></span><span class="en">Overall experience rating today</span></div>
+        <label class="flabel"><span data-fr="Note globale de votre expérience aujourd'hui" data-en="Overall experience rating today">Note globale de votre expérience aujourd'hui</span><span class="req">*</span></label>
         <div class="star-row" id="stars">
           <span class="star" onclick="rS(1)">★</span><span class="star" onclick="rS(2)">★</span><span class="star" onclick="rS(3)">★</span><span class="star" onclick="rS(4)">★</span><span class="star" onclick="rS(5)">★</span>
         </div>
         <input type="hidden" id="overall-star" name="overallRating" required/>
       </div>
       <div class="field">
-        <div class="bilabel"><span class="fr">Recommanderiez-vous cette conférence ? <span class="req">*</span></span><span class="en">Would you recommend this conference?</span></div>
+        <label class="flabel"><span data-fr="Recommanderiez-vous cette conférence ?" data-en="Would you recommend this conference?">Recommanderiez-vous cette conférence ?</span><span class="req">*</span></label>
         <div class="rdg">
-          <label class="rdo"><input type="radio" name="recommend" value="Oui, certainement" required/><div class="ol"><div class="fr">Oui, certainement</div><div class="en">Definitely yes</div></div></label>
-          <label class="rdo"><input type="radio" name="recommend" value="Probablement"/><div class="ol"><div class="fr">Probablement</div><div class="en">Probably</div></div></label>
-          <label class="rdo"><input type="radio" name="recommend" value="Pas sûr(e)"/><div class="ol"><div class="fr">Pas sûr(e)</div><div class="en">Not sure</div></div></label>
-          <label class="rdo"><input type="radio" name="recommend" value="Non"/><div class="ol"><div class="fr">Non</div><div class="en">No</div></div></label>
+          <label class="rdo"><input type="radio" name="recommend" value="Oui, certainement" required/><span data-fr="Oui, certainement" data-en="Definitely yes">Oui, certainement</span></label>
+          <label class="rdo"><input type="radio" name="recommend" value="Probablement"/><span data-fr="Probablement" data-en="Probably">Probablement</span></label>
+          <label class="rdo"><input type="radio" name="recommend" value="Pas sûr(e)"/><span data-fr="Pas sûr(e)" data-en="Not sure">Pas sûr(e)</span></label>
+          <label class="rdo"><input type="radio" name="recommend" value="Non"/><span data-fr="Non" data-en="No">Non</span></label>
         </div>
       </div>
       <div class="field">
-        <div class="bilabel"><span class="fr">Qu'est-ce qui pourrait être amélioré demain ?</span><span class="en">What could be improved tomorrow?</span></div>
-        <textarea name="improvements" placeholder="Vos suggestions / Your suggestions…"></textarea>
+        <label class="flabel" data-fr="Qu'est-ce qui pourrait être amélioré demain ?" data-en="What could be improved tomorrow?">Qu'est-ce qui pourrait être amélioré demain ?</label>
+        <textarea name="improvements" data-placeholder-fr="Vos suggestions…" data-placeholder-en="Your suggestions…" placeholder="Vos suggestions…"></textarea>
       </div>
       <div class="field">
-        <div class="bilabel"><span class="fr">Encouragement pour les organisateurs</span><span class="en">Encouragement for the organizers</span></div>
-        <textarea name="comment" placeholder="Écrivez ici / Write here…"></textarea>
+        <label class="flabel" data-fr="Encouragement pour les organisateurs" data-en="Encouragement for the organizers">Encouragement pour les organisateurs</label>
+        <textarea name="comment" data-placeholder-fr="Écrivez ici…" data-placeholder-en="Write here…" placeholder="Écrivez ici…"></textarea>
       </div>
     </div>
 
     <div class="ebox" id="err-bot"></div>
-    <button type="submit" class="sub-btn" id="sub">Soumettre mon retour / Submit Feedback</button>
-    <p class="fnote">Toutes les réponses sont confidentielles · All responses are confidential</p>
+    <button type="submit" class="sub-btn" id="sub" data-fr="Soumettre mon retour" data-en="Submit my feedback">Soumettre mon retour</button>
+    <p class="fnote" data-fr="Toutes les réponses sont confidentielles" data-en="All responses are confidential">Toutes les réponses sont confidentielles</p>
   </form>
 
   <div id="succ">
     <img src="dlcf-logo.png" alt="DLCF Logo" class="logo-img"/>
-    <h2>Merci — Que Dieu vous bénisse !</h2>
-    <p>Votre retour a bien été reçu. À la prochaine session !<br><em>Your feedback has been received. See you at the next session!</em></p>
+    <h2 data-fr="Merci — Que Dieu vous bénisse !" data-en="Thank you — God bless you!">Merci — Que Dieu vous bénisse !</h2>
+    <p data-fr="Votre retour a bien été reçu. À la prochaine session !" data-en="Your feedback has been received. See you at the next session!">Votre retour a bien été reçu. À la prochaine session !</p>
   </div>
 </div>
 
 <script>
 const API='https://dlcf-feedback.onrender.com/api/feedback';
+let currentLang = 'fr';
+
+const ERRORS = {
+  fr: {
+    campus:'Campus / Établissement requis', region:'Région requise',
+    conferenceDay:'Jour de conférence requis', bestSession:'Session la plus marquante requise',
+    spiritualDepth:'Note de profondeur spirituelle requise',
+    overallRating:'Note globale (étoiles) requise', recommend:'Réponse de recommandation requise',
+    sessions:'Veuillez sélectionner au moins une session.',
+    sending:'Envoi en cours…', failed:'Échec de l\'envoi. Vérifiez votre connexion et réessayez.'
+  },
+  en: {
+    campus:'Campus / Institution required', region:'Region required',
+    conferenceDay:'Conference day required', bestSession:'Most impactful session required',
+    spiritualDepth:'Spiritual depth rating required',
+    overallRating:'Overall star rating required', recommend:'Recommendation answer required',
+    sessions:'Please select at least one session.',
+    sending:'Submitting…', failed:'Submission failed. Please check your connection and try again.'
+  }
+};
+
+function setLang(lang) {
+  currentLang = lang;
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.textContent.toLowerCase() === lang));
+  document.querySelectorAll('[data-fr]').forEach(el => {
+    el.textContent = lang === 'fr' ? el.dataset.fr : el.dataset.en;
+  });
+  document.querySelectorAll('[data-placeholder-fr]').forEach(el => {
+    el.placeholder = lang === 'fr' ? el.dataset.placeholderFr : el.dataset.placeholderEn;
+  });
+  document.querySelectorAll('option[data-fr]').forEach(opt => {
+    opt.textContent = lang === 'fr' ? opt.dataset.fr : opt.dataset.en;
+  });
+}
+
 function tS(l){setTimeout(()=>l.classList.toggle('sel',l.querySelector('input').checked),0)}
 function pS(n,v){document.getElementById(n+'-val').value=v;document.querySelectorAll('#'+n+'-scale .sbtn').forEach((b,i)=>b.classList.toggle('sel',i<v))}
 function rS(n){document.getElementById('overall-star').value=n;document.querySelectorAll('#stars .star').forEach((s,i)=>s.classList.toggle('lit',i<n))}
-document.getElementById('anon').addEventListener('change',function(){const nf=document.getElementById('nf');nf.style.opacity=this.checked?'0.35':'1';nf.style.pointerEvents=this.checked?'none':'';if(this.checked)nf.querySelector('input').value=''})
-function setLang(lang){
-  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b.textContent.toLowerCase()===lang));
-  document.querySelectorAll('[data-fr]').forEach(el=>{if(el.dataset.fr)el.textContent=lang==='fr'?el.dataset.fr:el.dataset.en});
-}
+
+document.getElementById('anon').addEventListener('change',function(){
+  const nf=document.getElementById('nf');
+  nf.style.opacity=this.checked?'0.35':'1';
+  nf.style.pointerEvents=this.checked?'none':'';
+  if(this.checked)nf.querySelector('input').value='';
+});
+
 document.getElementById('ff').addEventListener('submit',async function(e){
   e.preventDefault();
-  const et=document.getElementById('err-top'),eb=document.getElementById('err-bot');
+  const L = ERRORS[currentLang];
+  const et=document.getElementById('err-top'), eb=document.getElementById('err-bot');
   et.style.display=eb.style.display='none';
-  const fd=new FormData(e.target),data={};
+  const fd=new FormData(e.target), data={};
   fd.forEach((v,k)=>{if(data[k])data[k]=Array.isArray(data[k])?[...data[k],v]:[data[k],v];else data[k]=v});
   data.anonymous=document.getElementById('anon').checked;
   data.sessions=[...e.target.querySelectorAll('input[name="sessions"]:checked')].map(i=>i.value);
   data.decisions=[...e.target.querySelectorAll('input[name="decisions"]:checked')].map(i=>i.value);
   data.submittedAt=new Date().toISOString();
-  const checks=[{f:'campus',m:'Campus / Établissement requis'},{f:'region',m:'Région requise'},{f:'conferenceDay',m:'Jour de conférence requis'},{f:'bestSession',m:'Session la plus marquante requise'},{f:'spiritualDepth',m:'Note de profondeur spirituelle requise'},{f:'overallRating',m:'Note globale (étoiles) requise'},{f:'recommend',m:'Réponse de recommandation requise'}];
-  for(const c of checks){if(!data[c.f]){et.textContent=eb.textContent=c.m;et.style.display=eb.style.display='block';window.scrollTo({top:0,behavior:'smooth'});return}}
-  if(!data.sessions.length){const m='Veuillez sélectionner au moins une session.';et.textContent=eb.textContent=m;et.style.display=eb.style.display='block';return}
-  const btn=document.getElementById('sub');btn.textContent='Envoi en cours…';btn.disabled=true;
+  const checks=['campus','region','conferenceDay','bestSession','spiritualDepth','overallRating','recommend'];
+  for(const f of checks){
+    if(!data[f]){et.textContent=eb.textContent=L[f];et.style.display=eb.style.display='block';window.scrollTo({top:0,behavior:'smooth'});return}
+  }
+  if(!data.sessions.length){et.textContent=eb.textContent=L.sessions;et.style.display=eb.style.display='block';return}
+  const btn=document.getElementById('sub');
+  btn.textContent=L.sending;btn.disabled=true;
   try{
     const r=await fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
     if(!r.ok)throw new Error();
-    e.target.style.display='none';document.getElementById('succ').style.display='block';window.scrollTo({top:0,behavior:'smooth'});
+    e.target.style.display='none';
+    document.getElementById('succ').style.display='block';
+    window.scrollTo({top:0,behavior:'smooth'});
   }catch{
-    eb.textContent='Échec de l\'envoi. Vérifiez votre connexion et réessayez.';eb.style.display='block';
-    btn.textContent='Soumettre mon retour / Submit Feedback';btn.disabled=false;
+    eb.textContent=L.failed;eb.style.display='block';
+    btn.textContent=currentLang==='fr'?'Soumettre mon retour':'Submit my feedback';
+    btn.disabled=false;
   }
 });
 </script>
